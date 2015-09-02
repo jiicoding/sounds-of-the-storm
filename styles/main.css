@@ -33,3 +33,16 @@ h4 {
   margin: 0px 0px 0px 0px;
   text-align: left;
 }
+.link {
+  text-decoration: none;
+
+}
+#disclaimer {
+  color: #7B7B7B;
+  width: 700px;
+  margin: auto;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  text-transform: none;
+}
