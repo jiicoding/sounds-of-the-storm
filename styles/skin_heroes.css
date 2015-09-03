@@ -19,10 +19,14 @@ h2, h3 {
   color: white;
   display: inline;
   margin: 5px 0px;
+  font-family: 'Oswald', sans-serif;
 }
 h2 {
   float: right;
   width: 33.33333%;
+}
+a {
+  color: white;
 }
 #right {
   text-align: right;
@@ -34,9 +38,6 @@ h2 {
   float: left;
   width: 33.33333%;
 }
-a {
-  color: white;
-}
 
 .track {
   display: inline-block;
@@ -47,9 +48,9 @@ a {
   border-radius: 20px;
 }
 h4 {
-  color: white;
-  margin-bottom: 5px;
-  margin-top: 0px;
+  color: #E6E6E6;
+  margin-bottom: 0px;
+  margin-top: 5px;
 }
 h1 {
   width: 33.33333%;
