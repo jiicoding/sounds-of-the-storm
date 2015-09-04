@@ -8,19 +8,33 @@ body {
   background-image: url("../images/Background.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   text-align: center;
   width: 90%;
   margin: 0px auto;
 }
 
+=======
+  text-align: justify;
+  width: 82%;
+  margin: 0px auto;
+}
+>>>>>>> master
 .wrapper {
   margin-top: 30%;
 }
 .entry {
   display: inline-block;
-  margin: 0px 10px 50px 10px;
+  margin: 0px 0px 50px 0px;
 }
-img {
+.placeholder {
+  visibility: hidden;
+  display: inline-block;
+  margin: 0px;
+  width: 214px;
+  height: 0px;
+}
+.icon {
   width: 206px;
   height: 300px;
   border-color: #3D007A;
@@ -34,6 +48,39 @@ h4 {
 }
 .link {
   text-decoration: none;
+<<<<<<< HEAD
+=======
+}
+#battlegrounds {
+  width: 82%;
+  margin: 0px auto;
+  text-align: justify;
+}
+.map_placeholder {
+  width: 290px;
+  height: 0px;
+  visibility: hidden;
+  display: inline-block;
+}
+hr {
+  border-color: #3D007A;
+}
+.category {
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+}
+.bg {
+  display: inline-block;
+  margin: 0px 0px 50px 0px;
+}
+.bg_icon {
+  width: 290px;
+  height: 251px;
+  border-color: #FF6600;
+  border-style: solid;
+  border-width: 4px;
+>>>>>>> master
 }
 #disclaimer {
   color: #7B7B7B;
@@ -43,4 +90,7 @@ h4 {
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
   text-transform: none;
+}
+.bottom {
+  text-align: center;
 }
