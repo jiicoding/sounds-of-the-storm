@@ -62,7 +62,8 @@ p {
   float: left;
 }
 .placeholder {
-  width: 314px;
+  width: 334px;
   height: 0px;
   visibility: hidden;
+  display: inline-block;
 }
