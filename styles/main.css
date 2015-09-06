@@ -4,7 +4,7 @@ html {
   text-transform: uppercase;
 }
 body {
-  background-color: black;
+  background-color: #09060E;
   background-image: url("../images/Background.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -29,14 +29,14 @@ body {
 .icon {
   width: 206px;
   height: 300px;
-  border-color: #3D007A;
-  border-style: solid;
-  border-width: 4px;
+  border: 2px solid #3D007A;
+  box-shadow: #4215AD 0px 0px 20px;
 }
 h4 {
   color: white;
-  margin: 0px 0px 0px 0px;
-  text-align: left;
+  text-align: center;
+  margin: 0px;
+  text-shadow: rgba(5,156,221, .50) 0px 0px 50px;
 }
 .link {
   text-decoration: none;
@@ -67,9 +67,8 @@ hr {
 .bg_icon {
   width: 290px;
   height: 251px;
-  border-color: #FF6600;
-  border-style: solid;
-  border-width: 4px;
+  border: 2px solid #FF6600;
+  box-shadow: 0 0 15px 5px rgba(204,39,11,.75)
 }
 #disclaimer {
   color: #7B7B7B;
