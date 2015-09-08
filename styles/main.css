@@ -12,8 +12,17 @@ body {
   width: 82%;
   margin: 0px auto;
 }
-.wrapper {
+.download {
+  display: inline-block;
+  width: 200px;
+  border: 2px solid white;
+  background-color: #3D007A;
+  border-radius: 10px;
+}
+.top_filler {
   margin-top: 30%;
+  margin-bottom: 30px;
+  text-align: center;
 }
 .entry {
   display: inline-block;
@@ -81,4 +90,32 @@ hr {
 }
 .bottom {
   text-align: center;
+}
+#misc {
+  width: 82%;
+  margin: 0px auto;
+  text-align: center;
+}
+.misc {
+  display: inline-block;
+  margin: 0px 20px 50px 20px;
+}
+.misc h4 {
+  color: white;
+  text-align: center;
+  margin: 0px;
+  text-shadow: rgba(5,156,221, .50) 0px 0px 50px;
+  font-size: 15px;
+}
+.misc_icon {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #0000CC;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 255,.75)
+}
+.misc_placeholder {
+  width: 150px;
+  height: 0px;
+  visibility: hidden;
+  display: inline-block;
 }
