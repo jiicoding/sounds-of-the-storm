@@ -1,22 +1,41 @@
 import os, sys
 
-print("hero name: ", end='')
-name = input()
-print("skin name: ", end='')
-skin = input()
-print("# of files in hero dir: ", end='')
-skin_num = input()
+while True:
+    print("Hero Name: ", end='')
+    name = input().lower().title()
+    if not os.path.isdir('VO/{}'.format(name)):
+        print('Invalid path name, try again')
+    else:
+        break
+skins = os.listdir('VO/{}'.format(name.title()))
+if '.DS_Store' in skins:
+    skins.remove('.DS_Store')
+inc = 1
+print('Skins for {}:'.format(name))
+for skin in skins:
+    print(str(inc) + ') ' + skin)
+    inc += 1
 
-if name == skin:
-  title = skin
+while True:
+    print('Choose Skin Number: ', end='')
+    s_num = int(input())
+    if s_num in range(1, inc):
+        break
+    else:
+        print('Invalid number, try again')
+
+skin_file = skins[s_num-1] #filename of skin
+skins.remove(skin_file)
+link_list = []
+for skin in skins:
+    link_list.append(skin.split(' - ')[1])
+if 'Default' in skin_file:
+    title = name
 else:
-  title = skin + ' ' + name
+    title = skin_file[skin_file.index('-')+2:] + ' ' + name #how skin is referred to on screen
 
-if not os.path.isdir('VO/{}/{}'.format(name,skin)):
-  print('Invalid path name')
-  sys.exit()
-
-if skin_num == '1':
+inc = inc - 1
+if inc == 1:
   header = """<!DOCTYPE html>
   <html>
     <head>
@@ -31,7 +50,7 @@ if skin_num == '1':
         <h2>{0}</h2>
         <h3 id="left"><a href="../index.html">Main Menu</a></h3>
       </div>
-      <img src="../images/{2}.jpg" class="icon" alt="{0}}"/>
+      <img src="../images/{1}.jpg" class="icon" alt="{0}"/>
       <br>
       <a href="DOWNLOAD_LINK_HERE" target='_blank' class="link">
         <div class="download">
@@ -39,17 +58,7 @@ if skin_num == '1':
         </div>
       </a>
       <br>""".format(title,title.lower())
-elif skin_num == '2':
-  alt_skins = os.listdir('VO/{}'.format(name))
-  alt_skins.remove('.DS_Store')
-  alt_skins.remove(skin)
-
-  if skin == name:
-    link = alt_skins[0]
-    alt_skins[0] = alt_skins[0] + ' ' + name
-  else:
-    link = 'Default'
-
+elif inc == 2:
   header = """<!DOCTYPE html>
   <html>
     <head>
@@ -71,18 +80,8 @@ elif skin_num == '2':
           <h4>Download</h4>
         </div>
       </a>
-      <br>""".format(title,alt_skins[0],title.lower(),link)
+      <br>""".format(title,skins[0],title.lower(),link_list[0])
 else:
-  alt_skins = os.listdir('VO/{}'.format(name))
-  alt_skins.remove('.DS_Store')
-  alt_skins.remove(skin)
-  if skin == name:
-    link1 = alt_skin[0]
-    link2 = alt_skin[1]
-  else:
-    alt_skins.remove(name)
-    link1 = 'Default'
-    link2 = alt_skin[0]
   header ="""<!DOCTYPE html>
 <html>
   <head>
@@ -93,14 +92,14 @@ else:
   </head>
   <body>
     <div class="header">
-      <h3 id="right"><a href="{1}.html">{1}</a></h3>
+      <h3 id="right"><a href="{1}.html">{2}</a></h3>
       <h2>{0}</h2>
       <h3 id="left"><a href="../index.html">Main Menu</a></h3>
     </div>
-    <h3 id="right"><a href="{2}.html">{2}</a></h3>
+    <h3 id="right"><a href="{3}.html">{4}</a></h3>
     <p></p>
     <h1>
-        <img src="../images/{3}.jpg" class="icon" alt="{0}"/>
+        <img src="../images/{5}.jpg" class="icon" alt="{0}"/>
     </h1>
     </br>
     <a href="DOWNLOAD_LINK_HERE" target='_blank' class="link">
@@ -108,12 +107,12 @@ else:
         <h4>Download</h4>
       </div>
     </a>
-    <br>""".format(title,link1,link2,title.lower())
-hero_page= open("{}.html".format(title),"w")
+    <br>""".format(title,skins[0],link_list[0],skins[1],link_list[1],title.lower())
+hero_page= open("{}.html".format(skin_file),"w")
 hero_page.write(header)
 
 counter = 0
-for track in os.listdir('VO/{}/{}'.format(name,skin)):
+for track in os.listdir('VO/{}/{}'.format(name,skin_file)):
   if track == '.DS_Store':
     continue
   start = track.index('_')+1
@@ -125,7 +124,7 @@ for track in os.listdir('VO/{}/{}'.format(name,skin)):
       <audio controls>
         <source src="../VO/{}/{}/{}" />
       </audio>
-    </div>""".format(t_name,name,skin,track)
+    </div>""".format(t_name,name,skin_file,track)
   hero_page.write(block)
   counter += 1
 
