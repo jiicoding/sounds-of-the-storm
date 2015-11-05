@@ -108,7 +108,7 @@ else:
       </div>
     </a>
     <br>""".format(title,skins[0],link_list[0],skins[1],link_list[1],title.lower())
-hero_page= open("{}.html".format(skin_file),"w")
+hero_page= open("{}.html/hero_pages".format(skin_file),"w")
 hero_page.write(header)
 
 counter = 0
