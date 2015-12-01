@@ -118,7 +118,6 @@ for track in os.listdir('VO/{}/{}'.format(name,skin_file)):
   start = track.index('_')+1
   t_name = track[start:len(track)-4]
   t_name = t_name.replace('_',' ')
-  name = "Cho'gall"
   block = """
     <div class="track">
       <h4>{}</h4>
