@@ -1,40 +1,63 @@
 import os, sys
 
+#User input
 while True:
+    #Enter hero name
     print("Hero Name: ", end='')
+    #Convert to titled form,
     name = input().lower().title()
+    #Check name validity
     if not os.path.isdir('VO/{}'.format(name)):
         print('Invalid path name, try again')
     else:
         break
+
+#Create array of available skins for selected hero
 skins = os.listdir('VO/{}'.format(name.title()))
+
+#Ignore .DS_Store
 if '.DS_Store' in skins:
     skins.remove('.DS_Store')
+
+#Print list of available skins
 inc = 1
 print('Skins for {}:'.format(name))
 for skin in skins:
     print(str(inc) + ') ' + skin)
     inc += 1
 
+#Get skin selection input from user
 while True:
     print('Choose Skin Number: ', end='')
-    s_num = int(input())
+    s_num = int(input()) #s_num = skin selection number (1-...)
+    #Verify validity selection
     if s_num in range(1, inc):
         break
     else:
         print('Invalid number, try again')
 
-skin_file = skins[s_num-1] #filename of skin
-skins.remove(skin_file)
-link_list = []
-for skin in skins:
-    link_list.append(skin.split(' - ')[1])
-if 'Default' in skin_file:
-    title = name
-else:
-    title = skin_file[skin_file.index('-')+2:] + ' ' + name #how skin is referred to on screen
+skin_file = skins[s_num-1] #skin_file = name of selected skin
+skins.remove(skin_file) #Remove skin selection from 'skins' array
+link_list = [] #instantiate list for alternate skin hyperlinks
 
+#add alternate skins to link_list
+for skin in skins:
+    #Convert " 'Hero' - 'Skin' " to 'Skin'
+    link_list.append(skin.split(' - ')[1])
+
+#Set 'title' variable, used for tab, main display, and alt names
+if 'Default' in skin_file:
+    title = name #title = default name
+else:
+    title = skin_file[skin_file.index('-')+2:] + ' ' + name #title = skin name
+
+#There's three header possibilities
+#1) No alternate skins
+#2) 1 alternate skin
+#3) 2 alternate skins
 inc = inc - 1
+
+#1) No alternate skins
 if inc == 1:
   header = """<!DOCTYPE html>
   <html>
@@ -58,6 +81,7 @@ if inc == 1:
         </div>
       </a>
       <br>""".format(title,title.lower())
+#2) 1 alternate skin
 elif inc == 2:
   header = """<!DOCTYPE html>
   <html>
@@ -81,6 +105,7 @@ elif inc == 2:
         </div>
       </a>
       <br>""".format(title,skins[0],title.lower(),link_list[0])
+#3) 2 alternate skins
 else:
   header ="""<!DOCTYPE html>
 <html>
@@ -108,16 +133,28 @@ else:
       </div>
     </a>
     <br>""".format(title,skins[0],link_list[0],skins[1],link_list[1],title.lower())
+
+#Create file for hero in hero_pages folder named skin_file
 hero_page = open("hero_pages/{}.html".format(skin_file),"w")
+#Write header to file
 hero_page.write(header)
 
+#Generate mp3 body
 counter = 0
+#loop through each mp3 file in skin folder
 for track in os.listdir('VO/{}/{}'.format(name,skin_file)):
+  #ex. track = 'AnubarakCybarakBase_AI_Attack00.mp3'
+  #ignore '.DS_Store'
   if track == '.DS_Store':
     continue
-  start = track.index('_')+1
-  t_name = track[start:len(track)-4]
-  t_name = t_name.replace('_',' ')
+
+  start = track.index('_')+1 #ex. start = index of first letter after first '_',
+                             #hopefully starting at the action name
+  t_name = track[start:len(track)-4] #t_name = action name without .mp3
+                                     #ex. t_name = 'AI_Attack00'
+  t_name = t_name.replace('_',' ') #t_name = action name without '_'
+                                   #ex. 'AI Attack00'
+  #html audio block
   block = """
     <div class="track">
       <h4>{}</h4>
@@ -125,15 +162,17 @@ for track in os.listdir('VO/{}/{}'.format(name,skin_file)):
         <source src="../VO/{}/{}/{}" />
       </audio>
     </div>""".format(t_name,name,skin_file,track)
+  #write block to file
   hero_page.write(block)
   counter += 1
-
+#calculate and write number of needed placeholders
 ph_count = 5 - (counter % 4)
 ph = """
     <div class="placeholder"></div>"""
 for i in range(ph_count):
   hero_page.write(ph)
 
+#Write google analytics code and closing tags
 closer ="""
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -147,4 +186,5 @@ closer ="""
     </body>
   </html>"""
 hero_page.write(closer)
+#close file
 hero_page.close()
