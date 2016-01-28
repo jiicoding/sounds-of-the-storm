@@ -10,7 +10,7 @@ while True:
     #set directory and hero_page name
     bg_dir = 'Map - ' + bg
     #Check direcotry validity
-    if not os.path.isdir('VO/{}'.format(bg_dir)):
+    if not os.path.isdir('VO_BG/{}'.format(bg_dir)):
         print('Invalid path name, try again')
     else:
         break
@@ -42,14 +42,14 @@ header = """<!DOCTYPE html>
       <br>""".format(bg, img)
 
 #Create file for hero in hero_pages folder named skin_file
-hero_page = open("hero_pages/{}.html".format(bg_dir),"w")
+hero_page = open("bg_pages/{}.html".format(bg_dir),"w")
 #Write header to file
 hero_page.write(header)
 
 #Generate mp3 body
 counter = 0
 #loop through each mp3 file in skin folder
-for track in os.listdir('VO/{}'.format(bg_dir)):
+for track in os.listdir('VO_BG/{}'.format(bg_dir)):
   #ex. track = '0_CreepVO_Necromancer_261.mp3'
   #ignore '.DS_Store'
   if track == '.DS_Store':
@@ -66,7 +66,7 @@ for track in os.listdir('VO/{}'.format(bg_dir)):
     <div class="track">
       <h4>{}</h4>
       <audio controls>
-        <source src="../VO/{}/{}" />
+        <source src="../VO_BG/{}/{}" />
       </audio>
     </div>""".format(t_name,bg_dir,track)
   #write block to file

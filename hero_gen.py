@@ -7,13 +7,13 @@ while True:
     #Convert to titled form,
     name = input().lower().title()
     #Check name validity
-    if not os.path.isdir('VO/{}'.format(name)):
+    if not os.path.isdir('VO_Hero/{}'.format(name)):
         print('Invalid path name, try again')
     else:
         break
 
 #Create array of available skins for selected hero
-skins = os.listdir('VO/{}'.format(name.title()))
+skins = os.listdir('VO_Hero/{}'.format(name.title()))
 
 #Ignore .DS_Store
 if '.DS_Store' in skins:
@@ -142,7 +142,7 @@ hero_page.write(header)
 #Generate mp3 body
 counter = 0
 #loop through each mp3 file in skin folder
-for track in os.listdir('VO/{}/{}'.format(name,skin_file)):
+for track in os.listdir('VO_Hero/{}/{}'.format(name,skin_file)):
   #ex. track = 'AnubarakCybarakBase_AI_Attack00.mp3'
   #ignore '.DS_Store'
   if track == '.DS_Store':
@@ -159,7 +159,7 @@ for track in os.listdir('VO/{}/{}'.format(name,skin_file)):
     <div class="track">
       <h4>{}</h4>
       <audio controls>
-        <source src="../VO/{}/{}/{}" />
+        <source src="../VO_Hero/{}/{}/{}" />
       </audio>
     </div>""".format(t_name,name,skin_file,track)
   #write block to file
