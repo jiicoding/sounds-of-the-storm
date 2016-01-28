@@ -14,15 +14,11 @@ for name in os.listdir('VO_Hero'):
 
     print(name)
     for skin in os.listdir('VO_Hero/' + name):
-        print(skin)
-        print(inc)
         skins = os.listdir('VO_Hero/' + name)
-        print(skins)
         if skin != '.DS_Store':
             inc = len(skins)
 
             skin_file = skin #skin_file = name of selected skin
-            print(skin_file)
             skins.remove(skin_file) #Remove skin selection from 'skins' array
             link_list = [] #instantiate list for alternate skin hyperlinks
 
