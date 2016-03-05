@@ -1,5 +1,6 @@
 import os
 
-for item in os.listdir('Nazeebo_Base'):
-    new = item.replace('WD_Male', 'NazeeboSpell')
-    os.rename('Nazeebo_Base/' + item, 'Nazeebo_Base/' + new)
+dirName='Xul'
+for item in os.listdir(dirName):
+    new = item.replace('Necromancer', '0Necromancer')
+    os.rename(dirName + '/' + item, dirName + '/' + new)
