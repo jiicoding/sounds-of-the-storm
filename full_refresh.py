@@ -1,5 +1,18 @@
 import os, sys
 
+print("Are you sure you want to regenerate all html files?")
+
+while True:
+    print('(y/n): ', end='')
+    ans = input().lower()
+    if ans == 'no' or ans == 'n':
+        print('exited')
+        sys.exit()
+    elif ans == 'yes' or ans == 'y':
+        break
+    else:
+        print("Invalid input")
+
 
 for name in os.listdir('VO_Hero'):
     if name == '.DS_Store':
@@ -12,7 +25,6 @@ for name in os.listdir('VO_Hero'):
         skins = os.listdir('VO_Hero/' + name)
         inc = len(skins)
 
-    print(name)
     for skin in os.listdir('VO_Hero/' + name):
         skins = os.listdir('VO_Hero/' + name)
         if skin != '.DS_Store':
@@ -31,7 +43,12 @@ for name in os.listdir('VO_Hero'):
             if 'Default' in skin_file:
                 title = name #title = default name
             else:
-                title = skin_file[skin_file.index('-')+2:] + ' ' + name #title = skin name
+                if name == 'Sgt. Hammer':
+                    title = skin_file[len(name)+3:] #Avoids Sgt. Doomhammer Sgt. Hammer
+                else:
+                    title = skin_file[len(name)+3:] + ' ' + name#title = name of skin + hero name
+                    #(ex.) skin_file = Li-Ming - Star Princess
+                    #          title = Star Princess Li-Ming
 
             #There's three header possibilities
             #1) No alternate skins
@@ -62,6 +79,7 @@ for name in os.listdir('VO_Hero'):
     </div>
   </a>
   <br>""".format(title,title.lower())
+
             #2) 1 alternate skin
             elif inc == 2:
               header = """<!DOCTYPE html>
@@ -86,6 +104,7 @@ for name in os.listdir('VO_Hero'):
     </div>
   </a>
   <br>""".format(title,skins[0],title.lower(),link_list[0])
+
             #3) 2 alternate skins
             else:
               header ="""<!DOCTYPE html>
@@ -169,3 +188,4 @@ for name in os.listdir('VO_Hero'):
             hero_page.write(closer)
             #close file
             hero_page.close()
+print('done')
