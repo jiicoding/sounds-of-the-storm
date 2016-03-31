@@ -46,16 +46,23 @@ skins.remove(skin_file) #Remove skin selection from 'skins' array
 link_list = [] #instantiate list for alternate skin hyperlinks
 
 #add alternate skins to link_list
-for skin in skins:
+for i in skins:
     #Convert " 'Hero' - 'Skin' " to 'Skin'
-    link_list.append(skin.split(' - ')[1])
+    link_list.append(i.split(' - ')[1])
 
 #Set 'title' variable, used for tab, main display, and alt names
 if 'Default' in skin_file:
     title = name #title = default name
 else:
-    title = skin_file[skin_file.index('-')+2:] + ' ' + name #title = skin name
-
+    if name == 'Sgt. Hammer':
+        title = skin_file[len(name)+3:] #Avoids Sgt. Doomhammer Sgt. Hammer
+    elif 'Pajama' in skin_file:
+        title = 'Pajama Party Lost Vikings'
+    else:
+        title = skin_file[len(name)+3:] + ' ' + name #title = name of skin + hero name
+        #(ex.) skin_file = Li-Ming - Star Princess
+        #          title = Star Princess Li-Ming
+        
 #Write the initial lines of the html file
 header = """<!DOCTYPE html>
 <html>

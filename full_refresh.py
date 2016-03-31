@@ -43,8 +43,10 @@ for name in os.listdir('VO_Hero'):
             else:
                 if name == 'Sgt. Hammer':
                     title = skin_file[len(name)+3:] #Avoids Sgt. Doomhammer Sgt. Hammer
+                elif 'Pajama' in skin_file:
+                    title = 'Pajama Party Lost Vikings'
                 else:
-                    title = skin_file[len(name)+3:] + ' ' + name#title = name of skin + hero name
+                    title = skin_file[len(name)+3:] + ' ' + name #title = name of skin + hero name
                     #(ex.) skin_file = Li-Ming - Star Princess
                     #          title = Star Princess Li-Ming
 
@@ -77,6 +79,7 @@ for name in os.listdir('VO_Hero'):
                         fileContent = readFile.readlines()
                         for seg in fileContent:
                             if 'mega.nz' in seg:
+                                print(skin_file)
                                 downloadURL = seg[seg.index('<a href="')+8:seg.index(" target=")]
                                 dlFound = True
                         break
