@@ -62,7 +62,7 @@ else:
         title = skin_file[len(name)+3:] + ' ' + name #title = name of skin + hero name
         #(ex.) skin_file = Li-Ming - Star Princess
         #          title = Star Princess Li-Ming
-        
+
 #Write the initial lines of the html file
 header = """<!DOCTYPE html>
 <html>
@@ -74,7 +74,7 @@ header = """<!DOCTYPE html>
   </head>
   <body>
     <div class="col" align="left">
-      <h3><a href="../index.html">Main Menu</a></h3>
+      <h3><a href="../index.html" id="menu">Main Menu</a></h3>
     </div>
     <div class="col" align="center">
       <h2>{0}</h2>
@@ -119,12 +119,12 @@ text += dl
 
 altSkinHeader = """
     <div class="col" align="right">
-      <h3>"""
+      <h3 id='skinParent' align='left'>"""
 text += altSkinHeader
 
 for i in range(0, len(skins)):
     altSkinBody = """
-        <a href="{0}.html">{1}</a><br>""".format(skins[i],link_list[i])
+        <a href="{0}.html" class='skin'>{1}</a><br>""".format(skins[i],link_list[i])
     text += altSkinBody
 
 altSkinCloser = """
@@ -168,6 +168,9 @@ for i in range(ph_count):
 
 #Write google analytics code and closing tags
 closer ="""
+
+    <script src='../js/jquery-1.12.2.min.js'></script>
+    <script src='../js/heroScript.js'></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

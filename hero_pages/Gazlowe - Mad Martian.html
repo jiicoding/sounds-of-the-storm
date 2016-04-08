@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="col" align="left">
-      <h3><a href="../index.html">Main Menu</a></h3>
+      <h3><a href="../index.html" id="menu">Main Menu</a></h3>
     </div>
     <div class="col" align="center">
       <h2>Mad Martian Gazlowe</h2>
@@ -19,10 +19,10 @@
         </div>
       </a>
     </div>
-  <div class="col" align="right">
-    <h3>
-        <a href="Gazlowe - Big Top.html">Big Top</a><br>
-        <a href="Gazlowe - Default.html">Default</a><br>
+    <div class="col" align="right">
+      <h3 id='skinParent' align='left'>
+        <a href="Gazlowe - Big Top.html" class='skin'>Big Top</a><br>
+        <a href="Gazlowe - Default.html" class='skin'>Default</a><br>
       </h3>
     </div>
     
@@ -1702,6 +1702,9 @@
     </div>
     <div class="placeholder"></div>
     <div class="placeholder"></div>
+
+    <script src='../js/jquery-1.12.2.min.js'></script>
+    <script src='../js/heroScript.js'></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
