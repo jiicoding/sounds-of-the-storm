@@ -40,28 +40,6 @@ miscIcon.on('mouseout', function() {
   });
 });
 
-/*var dlButton = $('.download');
-dlButton.on('mouseover', function() {
-  $(this).css({
-    'background-color': '#26004d',
-    'border': '2px solid #d9d9d9'
-  });
-});
-dlButton.on('mouseout', function() {
-  $(this).css({
-    'background-color': '#3D007A',
-    'border': '2px solid white'
-  });
-});
-
-var dlText = $('h4');
-dlText.on('mouseover', function() {
-  $(this).css('color', '#d9d9d9');
-});
-dlText.on('mouseout', function() {
-  $(this).css('color', 'white');
-});*/
-
 var dlButton = $('.download');
 dlButton.on('mouseover', function() {
   $(this).css({

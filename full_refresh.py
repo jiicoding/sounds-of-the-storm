@@ -43,6 +43,8 @@ for name in os.listdir('VO_Hero'):
             else:
                 if name == 'Sgt. Hammer':
                     title = skin_file[len(name)+3:] #Avoids Sgt. Doomhammer Sgt. Hammer
+                elif 'Azmodunk' in skin_file:
+                    title = 'Azmodunk'
                 elif 'Pajama' in skin_file:
                     title = 'Pajama Party Lost Vikings'
                 else:

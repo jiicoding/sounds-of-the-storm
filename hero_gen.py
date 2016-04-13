@@ -56,6 +56,8 @@ if 'Default' in skin_file:
 else:
     if name == 'Sgt. Hammer':
         title = skin_file[len(name)+3:] #Avoids Sgt. Doomhammer Sgt. Hammer
+    elif 'Azmodunk' in skin_file:
+        title = 'Azmodunk'
     elif 'Pajama' in skin_file:
         title = 'Pajama Party Lost Vikings'
     else:
@@ -107,7 +109,7 @@ if dlFound is True:
     </div>""".format(downloadURL)
 else:
     dl = """
-      <a href=DOWNLOAD_LINK_HERE target='_blank' class="link">
+      <a href="DOWNLOAD_LINK_HERE" target='_blank' class="link">
         <div class="download">
           <h4>Download</h4>
         </div>
