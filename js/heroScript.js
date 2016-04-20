@@ -40,3 +40,23 @@ menu.on('mouseout', function() {
   $(this).css('border-color', '#3D007A');
   $(this).css('box-shadow', '0px 0px 50px #3D007A inset');
 });
+
+var bgd = $('#bgdownload');
+menu.on('mouseover', function() {
+  $(this).css('border-color', 'white');
+  $(this).css('box-shadow', '0px 0px 25px white inset');
+});
+menu.on('mouseout', function() {
+  $(this).css('border-color', '#3D007A');
+  $(this).css('box-shadow', '0px 0px 50px #3D007A inset');
+});
+
+var miscd = $('#miscdownload');
+menu.on('mouseover', function() {
+  $(this).css('border-color', 'white');
+  $(this).css('box-shadow', '0px 0px 25px white inset');
+});
+menu.on('mouseout', function() {
+  $(this).css('border-color', '#3D007A');
+  $(this).css('box-shadow', '0px 0px 50px #3D007A inset');
+});
