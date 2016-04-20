@@ -83,7 +83,6 @@ for name in os.listdir(voHeroPath):
                         fileContent = readFile.readlines()
                         for seg in fileContent:
                             if 'mega.nz' in seg:
-                                print(skin_file)
                                 downloadURL = seg[seg.index('<a href="')+8:seg.index(" target=")]
                                 dlFound = True
                         break
