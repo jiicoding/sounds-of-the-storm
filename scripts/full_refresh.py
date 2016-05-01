@@ -41,7 +41,10 @@ for name in os.listdir(voHeroPath):
 
             #Set 'title' variable, used for tab, main display, and alt names
             if 'Default' in skin_file:
-                title = name #title = default name
+                if 'Kael' in skin_file:
+                    title = "Kael'thas"
+                else:
+                    title = name #title = default name
             else:
                 if name == 'Sgt. Hammer':
                     title = skin_file[len(name)+3:] #Avoids Sgt. Doomhammer Sgt. Hammer
