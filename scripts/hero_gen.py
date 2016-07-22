@@ -57,6 +57,8 @@ for i in skins:
 if 'Default' in skin_file:
     if 'Kael' in skin_file:
         title = "Kael'thas"
+    if 'Gul' in skin_file:
+        title = "Gul'dan"
     else:
         title = name #title = default name
 else:
