@@ -157,7 +157,7 @@ for name in os.listdir(voHeroPath):
                 text += block
                 counter += 1
             #calculate and write number of needed placeholders
-            ph_count = 5 - (counter % 4)
+            ph_count = 5 - (counter % 4) + 5
             ph = """
     <div class="placeholder"></div>"""
             for i in range(ph_count):
