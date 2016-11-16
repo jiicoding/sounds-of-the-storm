@@ -55,8 +55,6 @@ for i in skins:
 
 #Set 'title' variable, used for tab, main display, and alt names
 if 'Default' in skin_file:
-    if 'Kael' in skin_file:
-        title = "Kael'thas"
     if 'Gul' in skin_file:
         title = "Gul'dan"
     else:
@@ -68,6 +66,8 @@ else:
         title = 'Azmodunk'
     elif 'Pajama' in skin_file:
         title = 'Pajama Party Lost Vikings'
+    elif 'Butcherlisk' in skin_file:
+        title = 'The Butcherlisk'
     else:
         title = skin_file[len(name)+3:] + ' ' + name #title = name of skin + hero name
         #(ex.) skin_file = Li-Ming - Star Princess
