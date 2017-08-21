@@ -5,8 +5,8 @@ voPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'vo/vo_
 PagesPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'pages/misc_pages/'))
 
 #set image name
-img = 'misc_uther-icon-hots.png'
-title = 'misc_Uther Menu Stuff'
+img = 'misc_goatmen.png'
+title = 'misc_GoatMen'
 
 #set header
 header = """<!DOCTYPE html>
@@ -54,7 +54,7 @@ for track in os.listdir(voPath + '/{}'.format(title)):
   #html audio block
   block = """
     <div class="track">
-      <h4>{0}</h4>
+      <h4>{1}</h4>
       <audio controls>
         <source src="../../vo/vo_misc/{0}/{1}" />
       </audio>
